@@ -28,11 +28,13 @@ package org.springframework.beans.factory;
  * @author Juergen Hoeller
  * @since 07.07.2003
  * @see org.springframework.beans.factory.config.ConfigurableBeanFactory#setParentBeanFactory
+ * 提供父容器的访问功能
  */
 public interface HierarchicalBeanFactory extends BeanFactory {
 	
 	/**
 	 * Return the parent bean factory, or <code>null</code> if there is none.
+	 * 获取父bean工厂，没有的话返回null
 	 */
 	BeanFactory getParentBeanFactory();
 
@@ -44,6 +46,8 @@ public interface HierarchicalBeanFactory extends BeanFactory {
 	 * @param name the name of the bean to query
 	 * @return whether a bean with the given name is defined in the local factory
 	 * @see org.springframework.beans.factory.BeanFactory#containsBean
+	 * 查询指定的名字bean是否包含在本地bean工厂，忽略祖先上下文
+	 *
 	 */
 	boolean containsLocalBean(String name);
 
