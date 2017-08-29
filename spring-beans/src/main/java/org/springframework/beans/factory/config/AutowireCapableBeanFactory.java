@@ -55,6 +55,7 @@ import org.springframework.beans.factory.BeanFactory;
  * @see org.springframework.beans.factory.BeanFactoryAware
  * @see org.springframework.beans.factory.config.ConfigurableListableBeanFactory
  * @see org.springframework.context.ApplicationContext#getAutowireCapableBeanFactory()
+ * 定义了bean的自动装配规则
  */
 public interface AutowireCapableBeanFactory extends BeanFactory {
 
@@ -64,6 +65,7 @@ public interface AutowireCapableBeanFactory extends BeanFactory {
 	 * @see #createBean
 	 * @see #autowire
 	 * @see #autowireBeanProperties
+	 * 表示不使用注入，但是BeanFactoryAware和注解驱动的注入仍有效
 	 */
 	int AUTOWIRE_NO = 0;
 
@@ -73,6 +75,7 @@ public interface AutowireCapableBeanFactory extends BeanFactory {
 	 * @see #createBean
 	 * @see #autowire
 	 * @see #autowireBeanProperties
+	 * 使用bean名字自动装配
 	 */
 	int AUTOWIRE_BY_NAME = 1;
 
@@ -82,6 +85,7 @@ public interface AutowireCapableBeanFactory extends BeanFactory {
 	 * @see #createBean
 	 * @see #autowire
 	 * @see #autowireBeanProperties
+	 * 使用bean类型自动装配
 	 */
 	int AUTOWIRE_BY_TYPE = 2;
 
@@ -90,6 +94,7 @@ public interface AutowireCapableBeanFactory extends BeanFactory {
 	 * can be satisfied (involves resolving the appropriate constructor).
 	 * @see #createBean
 	 * @see #autowire
+	 * 使用构造器自动装配
 	 */
 	int AUTOWIRE_CONSTRUCTOR = 3;
 
@@ -100,6 +105,7 @@ public interface AutowireCapableBeanFactory extends BeanFactory {
 	 * @see #autowire
 	 * @deprecated as of Spring 3.0: If you are using mixed autowiring strategies,
 	 * prefer annotation-based autowiring for clearer demarcation of autowiring needs.
+	 * 自动装配策略
 	 */
 	@Deprecated
 	int AUTOWIRE_AUTODETECT = 4;
@@ -120,6 +126,7 @@ public interface AutowireCapableBeanFactory extends BeanFactory {
 	 * @param beanClass the class of the bean to create
 	 * @return the new bean instance
 	 * @throws BeansException if instantiation or wiring failed
+	 * 根据给定的类创建一个bean实例
 	 */
 	<T> T createBean(Class<T> beanClass) throws BeansException;
 
@@ -132,6 +139,7 @@ public interface AutowireCapableBeanFactory extends BeanFactory {
 	 * use {@link #autowireBeanProperties} for that purposes.
 	 * @param existingBean the existing bean instance
 	 * @throws BeansException if wiring failed
+	 * 填充给定bean实例的属性，通过after-instantiation回调和Bean属性的post-processing
 	 */
 	void autowireBean(Object existingBean) throws BeansException;
 
