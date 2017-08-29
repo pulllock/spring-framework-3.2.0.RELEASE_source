@@ -29,6 +29,7 @@ package org.springframework.beans.factory.config;
  * @see ConfigurableBeanFactory
  * @see org.springframework.beans.factory.support.DefaultSingletonBeanRegistry
  * @see org.springframework.beans.factory.support.AbstractBeanFactory
+ * 单例类注册
  */
 public interface SingletonBeanRegistry {
 
@@ -52,6 +53,7 @@ public interface SingletonBeanRegistry {
 	 * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet
 	 * @see org.springframework.beans.factory.DisposableBean#destroy
 	 * @see org.springframework.beans.factory.support.BeanDefinitionRegistry#registerBeanDefinition
+	 * 将指定的对象注册成单例，名字是指定的beanName
 	 */
 	void registerSingleton(String beanName, Object singletonObject);
 
@@ -67,6 +69,7 @@ public interface SingletonBeanRegistry {
 	 * @param beanName the name of the bean to look for
 	 * @return the registered singleton object, or <code>null</code> if none found
 	 * @see ConfigurableListableBeanFactory#getBeanDefinition
+	 * 返回指定名字的单例类
 	 */
 	Object getSingleton(String beanName);
 
@@ -91,6 +94,7 @@ public interface SingletonBeanRegistry {
 	 * @see #registerSingleton
 	 * @see org.springframework.beans.factory.ListableBeanFactory#containsBeanDefinition
 	 * @see org.springframework.beans.factory.BeanFactory#containsBean
+	 * 是否包含指定名字的单例
 	 */
 	boolean containsSingleton(String beanName);
 
@@ -105,6 +109,7 @@ public interface SingletonBeanRegistry {
 	 * @see #registerSingleton
 	 * @see org.springframework.beans.factory.support.BeanDefinitionRegistry#getBeanDefinitionNames
 	 * @see org.springframework.beans.factory.ListableBeanFactory#getBeanDefinitionNames
+	 * 返回容器中所有单例的名字
 	 */
 	String[] getSingletonNames();
 
@@ -119,6 +124,7 @@ public interface SingletonBeanRegistry {
 	 * @see #registerSingleton
 	 * @see org.springframework.beans.factory.support.BeanDefinitionRegistry#getBeanDefinitionCount
 	 * @see org.springframework.beans.factory.ListableBeanFactory#getBeanDefinitionCount
+	 * 返回容器中单例的个数
 	 */
 	int getSingletonCount();
 
