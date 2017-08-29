@@ -29,6 +29,7 @@ import org.springframework.beans.BeansException;
  *
  * @author Juergen Hoeller
  * @since 3.0
+ * 策略接口，将一个值评估成一个表达式
  */
 public interface BeanExpressionResolver {
 
@@ -39,6 +40,7 @@ public interface BeanExpressionResolver {
 	 * @param evalContext the evaluation context
 	 * @return the resolved value (potentially the given value as-is)
 	 * @throws BeansException if evaluation failed
+	 * 将给定的值评估成一个表达式
 	 */
 	Object evaluate(String value, BeanExpressionContext evalContext) throws BeansException;
 

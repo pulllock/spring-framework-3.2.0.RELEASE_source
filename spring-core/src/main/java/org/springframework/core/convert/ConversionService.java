@@ -23,6 +23,7 @@ package org.springframework.core.convert;
  * @author Keith Donald
  * @author Phillip Webb
  * @since 3.0
+ * 转换服务接口，用来进行类型转换
  */
 public interface ConversionService {
 
@@ -37,6 +38,7 @@ public interface ConversionService {
 	 * @param targetType the target type to convert to (required)
 	 * @return true if a conversion can be performed, false if not
 	 * @throws IllegalArgumentException if targetType is null
+	 * 如果源类型可以转换成目标类型，返回true
 	 */
 	boolean canConvert(Class<?> sourceType, Class<?> targetType);
 
@@ -52,6 +54,7 @@ public interface ConversionService {
 	 * @param targetType context about the target type to convert to (required)
 	 * @return true if a conversion can be performed between the source and target types, false if not
 	 * @throws IllegalArgumentException if targetType is null
+	 * 如果源类型可以转换成目标类型，返回true
 	 */
 	boolean canConvert(TypeDescriptor sourceType, TypeDescriptor targetType);
 
@@ -62,6 +65,7 @@ public interface ConversionService {
 	 * @return the converted object, an instance of targetType
 	 * @throws ConversionException if a conversion exception occurred
 	 * @throws IllegalArgumentException if targetType is null
+	 * 将源类型转换为目标类型
 	 */
 	<T> T convert(Object source, Class<T> targetType);
 
@@ -75,6 +79,7 @@ public interface ConversionService {
 	 * @throws ConversionException if a conversion exception occurred
 	 * @throws IllegalArgumentException if targetType is null
 	 * @throws IllegalArgumentException if sourceType is null but source is not null
+	 * 将源类型转换为目标类型
 	 */
 	Object convert(Object source, TypeDescriptor sourceType, TypeDescriptor targetType);
 
